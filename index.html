@@ -21,10 +21,15 @@
                 Divine Store
                 <span>✨</span>
             </a>
-            <div class="cart-icon" onclick="toggleCart()">
-                <span>🛍️</span>
-                <span>Carrinho</span>
-                <span class="cart-count">0</span>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" id="themeToggle">
+                    🌙
+                </button>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <span>🛍️</span>
+                    <span>Carrinho</span>
+                    <span class="cart-count">0</span>
+                </div>
             </div>
         </div>
     </header>
@@ -40,6 +45,15 @@
             </button>
             <button class="category-btn" data-category="games">
                 🎮 Games
+            </button>
+            <button class="category-btn" data-category="musica">
+                🎵 Música
+            </button>
+            <button class="category-btn" data-category="produtividade">
+                💼 Produtividade
+            </button>
+            <button class="category-btn" data-category="seguranca">
+                🔒 Segurança
             </button>
         </div>
     </nav>
@@ -93,6 +107,7 @@
     <script type="module" src="products.js"></script>
     <script type="module" src="categories.js"></script>
     <script type="module" src="cart.js"></script>
+    <script type="module" src="theme.js"></script>
     <script type="module" src="init.js"></script>
 
     <footer class="footer">

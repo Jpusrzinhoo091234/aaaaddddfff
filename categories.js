@@ -1,15 +1,33 @@
 export const categories = [
     {
+        id: 'all',
+        name: 'Todos',
+        emoji: '🌟'
+    },
+    {
         id: 'streaming',
         name: 'Streaming',
-        emoji: '📺',
-        description: 'Serviços de streaming como Netflix, Disney+ e mais'
+        emoji: '📺'
     },
     {
         id: 'games',
         name: 'Games',
-        emoji: '🎮',
-        description: 'Produtos e vantagens para seus jogos favoritos'
+        emoji: '🎮'
+    },
+    {
+        id: 'musica',
+        name: 'Música',
+        emoji: '🎵'
+    },
+    {
+        id: 'produtividade',
+        name: 'Produtividade',
+        emoji: '💼'
+    },
+    {
+        id: 'seguranca',
+        name: 'Segurança',
+        emoji: '🔒'
     }
 ];
 
