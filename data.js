@@ -2,186 +2,145 @@
 export const products = [
     {
         id: 'netflix-premium',
-        name: 'Netflix Premium 4K',
+        name: 'Netflix Premium',
         emoji: '📺',
-        price: 21.90,
-        oldPrice: 29.90,
-        category: 'streaming',
-        description: `✨ CONTA NETFLIX PREMIUM 4K
-        
-🎯 Características:
-• Ultra HD 4K Garantido
-• 30 dias de Acesso
-• Suporte Premium 24/7
-• Garantia de Funcionamento`,
-        shortDescription: 'Netflix 4K - 30 dias de acesso',
-        highlight: '⭐ PREMIUM',
+        price: 44.90,
+        oldPrice: 55.90,
         stock: 50,
+        category: 'streaming',
+        highlight: 'Mais Vendido',
+        shortDescription: 'Acesso Premium com 4K e 4 telas',
+        description: 'Desfrute do melhor do entretenimento com a Netflix Premium. Assista em até 4 telas simultaneamente em qualidade Ultra HD 4K. Baixe seus títulos favoritos e assista offline.',
         benefits: [
-            '📺 4K Ultra HD',
-            '🎮 Todos os Dispositivos',
-            '⚡ Entrega Automática',
-            '🔧 Suporte 24/7'
+            'Qualidade Ultra HD 4K',
+            '4 telas simultâneas',
+            'Download para assistir offline',
+            'Sem anúncios',
+            'Cancelamento flexível'
         ]
     },
     {
-        id: 'disney-plus',
+        id: 'disney-premium',
         name: 'Disney+ Premium',
         emoji: '🏰',
-        price: 16.90,
+        price: 33.90,
+        oldPrice: 39.90,
+        stock: 35,
         category: 'streaming',
-        description: `✨ CONTA DISNEY+ PREMIUM
-        
-🎯 Características:
-• Qualidade 4K HDR
-• 30 dias de Acesso
-• Perfil Próprio
-• Suporte 24/7`,
-        shortDescription: 'Disney+ - 30 dias de acesso',
-        highlight: '✨ NOVO',
-        stock: 30,
+        highlight: 'Promoção',
+        shortDescription: 'Acesso Premium com conteúdo exclusivo',
+        description: 'Todo o universo Disney, Marvel, Star Wars e National Geographic em um só lugar. Assista em qualidade 4K com áudio Dolby Atmos em até 4 dispositivos.',
         benefits: [
-            '🎬 4K HDR',
-            '👥 Perfil Individual',
-            '⚡ Entrega Imediata',
-            '🔧 Suporte Premium'
+            'Conteúdo exclusivo Disney',
+            'Qualidade 4K HDR',
+            '4 dispositivos simultâneos',
+            'Downloads ilimitados',
+            'Perfis personalizados'
         ]
     },
     {
         id: 'prime-video',
         name: 'Prime Video',
-        emoji: '🎥',
+        emoji: '🎬',
         price: 14.90,
-        oldPrice: 19.90,
+        stock: 100,
         category: 'streaming',
-        description: `✨ AMAZON PRIME VIDEO
-        
-🎯 Inclui:
-• Prime Video HD
-• Amazon Prime
-• Prime Gaming
-• Frete Grátis`,
-        shortDescription: 'Prime Video + Amazon Prime',
-        stock: 25,
+        shortDescription: 'Filmes, séries e benefícios Prime',
+        description: 'Amazon Prime Video com todo o catálogo de filmes e séries exclusivas. Inclui benefícios Prime como frete grátis e Prime Gaming.',
         benefits: [
-            '🎬 Conteúdo HD',
-            '🎮 Prime Gaming',
-            '📦 Frete Grátis',
-            '💫 Benefícios Prime'
+            'Catálogo exclusivo Amazon',
+            'Frete grátis Prime',
+            'Prime Gaming incluso',
+            'Qualidade 4K HDR',
+            'Downloads para offline'
         ]
     },
     {
         id: 'hbo-max',
         name: 'HBO Max',
-        emoji: '🌟',
-        price: 18.90,
+        emoji: '🎭',
+        price: 27.90,
+        oldPrice: 34.90,
+        stock: 45,
         category: 'streaming',
-        description: `✨ HBO MAX PREMIUM
-        
-🎯 Características:
-• Qualidade 4K
-• 30 dias de Acesso
-• Conteúdo Exclusivo
-• Suporte VIP`,
-        shortDescription: 'HBO Max - 30 dias Premium',
-        highlight: '🔥 DESTAQUE',
-        stock: 40,
+        shortDescription: 'O melhor do entretenimento HBO',
+        description: 'HBO Max com todo o catálogo HBO, DC Comics, Warner Bros e Cartoon Network. Assista em até 3 telas com qualidade 4K.',
         benefits: [
-            '📺 4K Ultra HD',
-            '🎬 Conteúdo Exclusivo',
-            '⚡ Ativação Rápida',
-            '👑 Suporte VIP'
+            'Catálogo completo HBO',
+            'Lançamentos Warner',
+            'Conteúdo DC Comics',
+            '3 telas simultâneas',
+            'Qualidade 4K HDR'
         ]
     },
     {
         id: 'game-pass',
-        name: 'Game Pass Ultimate',
+        name: 'Xbox Game Pass Ultimate',
         emoji: '🎮',
-        price: 25.00,
+        price: 44.90,
+        stock: 30,
         category: 'games',
-        description: `🎮 XBOX GAME PASS ULTIMATE
-        
-✨ Benefícios:
-• Acesso a +100 Jogos
-• Xbox Live Gold Incluso
-• EA Play Incluso
-• Cloud Gaming`,
-        shortDescription: '1 mês de Game Pass Ultimate',
-        highlight: '🔥 MAIS VENDIDO',
-        stock: 35,
+        highlight: 'Mais de 100 Jogos',
+        shortDescription: 'Biblioteca com mais de 100 jogos',
+        description: 'Xbox Game Pass Ultimate com acesso a mais de 100 jogos para Console, PC e Cloud Gaming. Inclui EA Play e Xbox Live Gold.',
         benefits: [
-            '🎮 +100 Jogos Incríveis',
-            '⭐ Xbox Live Gold',
-            '🎯 EA Play Incluso',
-            '☁️ Cloud Gaming'
+            'Mais de 100 jogos',
+            'EA Play incluso',
+            'Xbox Live Gold',
+            'Cloud Gaming',
+            'Jogos day-one'
         ]
     },
     {
         id: 'ps-plus',
-        name: 'PlayStation Plus',
-        emoji: '🎯',
-        price: 29.90,
+        name: 'PlayStation Plus Extra',
+        emoji: '🎮',
+        price: 39.90,
+        stock: 25,
         category: 'games',
-        description: `🎮 PS PLUS EXTRA
-        
-✨ Benefícios:
-• Jogos Mensais
-• Biblioteca com +400 Jogos
-• Jogos Clássicos
-• Cloud Storage`,
-        shortDescription: '1 mês de PS Plus Extra',
-        highlight: '🌟 PREMIUM',
-        stock: 20,
+        shortDescription: 'Catálogo PS4 e PS5 + Online',
+        description: 'PlayStation Plus Extra com centenas de jogos PS4 e PS5, modo online e jogos mensais. Desfrute dos melhores títulos PlayStation.',
         benefits: [
-            '🎮 Jogos Mensais',
-            '📚 +400 Jogos',
-            '🏆 Multiplayer Online',
-            '☁️ 100GB na Nuvem'
+            'Jogos PS4 e PS5',
+            'Modo Online',
+            'Jogos mensais',
+            'Descontos exclusivos',
+            'Cloud Storage'
         ]
     },
     {
         id: 'nintendo-online',
         name: 'Nintendo Switch Online',
-        emoji: '🎲',
-        price: 19.90,
+        emoji: '🎮',
+        price: 20.00,
+        stock: 40,
         category: 'games',
-        description: `🎮 NINTENDO SWITCH ONLINE
-        
-✨ Inclui:
-• Jogos NES e SNES
-• Multiplayer Online
-• Cloud Save
-• Benefícios Exclusivos`,
-        shortDescription: '3 meses de Nintendo Online',
-        stock: 15,
+        shortDescription: 'Jogue online + jogos retrô',
+        description: 'Nintendo Switch Online com acesso a jogos online, biblioteca de clássicos NES e SNES, e backup em nuvem dos seus saves.',
         benefits: [
-            '🎮 Jogos Retrô',
-            '🌐 Online Gaming',
-            '☁️ Save na Nuvem',
-            '🎁 Ofertas Exclusivas'
+            'Jogo online',
+            'Jogos NES e SNES',
+            'Cloud Save',
+            'Ofertas exclusivas',
+            'Aplicativo móvel'
         ]
     },
     {
         id: 'spotify-premium',
         name: 'Spotify Premium',
         emoji: '🎵',
-        price: 17.90,
+        price: 19.90,
+        stock: 150,
         category: 'musica',
-        description: `🎵 SPOTIFY PREMIUM
-        
-✨ Recursos:
-• Música Sem Anúncios
-• Download Offline
-• Alta Qualidade
-• Multi-dispositivo`,
-        shortDescription: '1 mês de Spotify Premium',
-        highlight: '🎵 POPULAR',
-        stock: 45,
+        highlight: 'Mais Popular',
+        shortDescription: 'Música sem anúncios + Download',
+        description: 'Spotify Premium com música em alta qualidade, sem anúncios e com download offline. Acesse milhões de músicas e podcasts.',
         benefits: [
-            '🎵 Sem Anúncios',
-            '📱 Modo Offline',
-            '🎧 Áudio HD',
-            '📱 Multi-device'
+            'Música sem anúncios',
+            'Download offline',
+            'Qualidade Premium',
+            'Letras em tempo real',
+            'Modo carro'
         ]
     },
     {
@@ -189,90 +148,71 @@ export const products = [
         name: 'YouTube Premium',
         emoji: '▶️',
         price: 24.90,
-        oldPrice: 29.90,
+        stock: 80,
         category: 'musica',
-        description: `▶️ YOUTUBE PREMIUM
-        
-✨ Inclui:
-• YouTube Sem Anúncios
-• YouTube Music Premium
-• Background Play
-• Downloads`,
-        shortDescription: '1 mês de YouTube Premium',
-        stock: 30,
+        shortDescription: 'YouTube sem anúncios + Music',
+        description: 'YouTube Premium com YouTube Music, vídeos sem anúncios, download offline e reprodução em segundo plano.',
         benefits: [
-            '🎵 Music Premium',
-            '📺 Sem Anúncios',
-            '📱 Background Play',
-            '⬇️ Downloads'
+            'Sem anúncios',
+            'YouTube Music Premium',
+            'Download offline',
+            'Background Play',
+            'Modo Picture-in-Picture'
         ]
     },
     {
-        id: 'office-365',
-        name: 'Microsoft 365',
+        id: 'microsoft-365',
+        name: 'Microsoft 365 Family',
         emoji: '💼',
-        price: 29.90,
+        price: 99.90,
+        oldPrice: 119.90,
+        stock: 60,
         category: 'produtividade',
-        description: `💼 MICROSOFT 365
-        
-✨ Aplicativos:
-• Word, Excel, PowerPoint
-• OneDrive 1TB
-• Outlook Premium
-• Teams`,
-        shortDescription: '1 mês de Microsoft 365',
-        highlight: '💼 BUSINESS',
-        stock: 25,
+        highlight: 'Até 6 usuários',
+        shortDescription: 'Office completo + 1TB OneDrive',
+        description: 'Microsoft 365 Family com Word, Excel, PowerPoint e 1TB de OneDrive para até 6 usuários. Inclui apps premium para PC, Mac e dispositivos móveis.',
         benefits: [
-            '📊 Office Completo',
-            '☁️ 1TB OneDrive',
-            '📧 Email Premium',
-            '👥 Teams'
+            'Apps Office Premium',
+            '1TB OneDrive/usuário',
+            'Até 6 usuários',
+            'Editor Premium',
+            'Segurança avançada'
         ]
     },
     {
         id: 'adobe-cc',
         name: 'Adobe Creative Cloud',
         emoji: '🎨',
-        price: 49.90,
+        price: 89.90,
+        stock: 40,
         category: 'produtividade',
-        description: `🎨 ADOBE CREATIVE CLOUD
-        
-✨ Aplicativos:
-• Photoshop
-• Illustrator
-• Premiere Pro
-• After Effects`,
-        shortDescription: '1 mês de Adobe CC',
-        highlight: '🎨 CRIATIVO',
-        stock: 15,
+        shortDescription: 'Suite completa Adobe',
+        description: 'Adobe Creative Cloud com todos os apps Adobe: Photoshop, Illustrator, Premiere Pro e mais. Inclui 100GB de armazenamento em nuvem.',
         benefits: [
-            '🎨 Suite Completa',
-            '☁️ Cloud Storage',
-            '📱 Apps Mobile',
-            '🎓 Tutorials'
+            'Todos os apps Adobe',
+            '100GB na nuvem',
+            'Fontes premium',
+            'Tutoriais exclusivos',
+            'Atualizações incluídas'
         ]
     },
     {
         id: 'vpn-premium',
         name: 'VPN Premium',
         emoji: '🔒',
-        price: 15.90,
+        price: 29.90,
+        oldPrice: 39.90,
+        stock: 100,
         category: 'seguranca',
-        description: `🔒 VPN PREMIUM
-        
-✨ Recursos:
-• Servidores Globais
-• Conexão Ilimitada
-• Política No-Logs
-• Kill Switch`,
-        shortDescription: '1 mês de VPN Premium',
-        stock: 50,
+        highlight: 'Proteção Total',
+        shortDescription: 'Navegue com segurança total',
+        description: 'VPN Premium com servidores em mais de 90 países, criptografia militar e política zero-logs. Proteja sua privacidade online.',
         benefits: [
-            '🌍 Servidores Globais',
-            '⚡ Banda Ilimitada',
-            '🔒 Criptografia',
-            '🛡️ Proteção Total'
+            'Servidores globais',
+            'Criptografia militar',
+            'Política zero-logs',
+            'Largura ilimitada',
+            'Kill Switch'
         ]
     }
 ];

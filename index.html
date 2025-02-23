@@ -92,9 +92,27 @@
     <!-- Preview Modal -->
     <div id="previewModal" class="preview-modal">
         <div class="preview-container">
-            <button class="close-modal">×</button>
-            <div id="previewBody">
-                <!-- Preview content will be dynamically loaded here -->
+            <button class="close-modal" onclick="closePreviewModal()">×</button>
+            <div class="preview-content">
+                <div class="preview-left">
+                    <div class="preview-emoji"></div>
+                    <div class="preview-price-container">
+                        <div class="preview-old-price"></div>
+                        <div class="preview-price"></div>
+                    </div>
+                    <div class="preview-stock"></div>
+                    <button class="preview-add-btn add-to-cart-btn">
+                        Adicionar ao Carrinho
+                    </button>
+                </div>
+                <div class="preview-right">
+                    <h2 class="preview-title"></h2>
+                    <p class="preview-description"></p>
+                    <div class="preview-benefits">
+                        <h4>Benefícios</h4>
+                        <ul class="preview-benefits-list"></ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -107,55 +125,47 @@
     <script type="module" src="products.js"></script>
     <script type="module" src="categories.js"></script>
     <script type="module" src="cart.js"></script>
+    <script type="module" src="preview.js"></script>
     <script type="module" src="theme.js"></script>
     <script type="module" src="init.js"></script>
 
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <span class="footer-icon">💫</span>
-                <h3>Qualidade Premium</h3>
-                <p>Produtos 100% Originais</p>
-                <p>Garantia Vitalícia</p>
-                <p>Satisfação Garantida</p>
+                <span class="footer-icon">✨</span>
+                <h3>Produtos Premium</h3>
+                <p>Garantimos a mais alta qualidade em todos os nossos produtos digitais.</p>
             </div>
-            
             <div class="footer-section">
                 <span class="footer-icon">🔒</span>
                 <h3>Compra Segura</h3>
-                <p>Criptografia Avançada</p>
-                <p>Pagamento Protegido</p>
-                <p>Dados Seguros</p>
+                <p>Pagamento seguro via PIX com entrega automática após confirmação.</p>
             </div>
-
             <div class="footer-section">
                 <span class="footer-icon">⚡</span>
                 <h3>Entrega Express</h3>
-                <p>Entrega Automática</p>
-                <p>Ativação Imediata</p>
-                <p>Disponível 24/7</p>
+                <p>Receba seu produto em até 5 minutos após a confirmação do pagamento.</p>
             </div>
-
             <div class="footer-section">
                 <span class="footer-icon">💬</span>
                 <h3>Suporte VIP</h3>
-                <p>Atendimento Premium</p>
-                <a href="https://wa.me/24981128510" class="whatsapp-button">
-                    <span>💬</span> Chamar no WhatsApp
+                <p>Suporte técnico especializado via WhatsApp.</p>
+                <a href="https://wa.me/5511999999999" class="whatsapp-button" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    Falar com Suporte
                 </a>
-                <p class="support-hours">Suporte 24 horas por dia</p>
+                <p class="support-hours">Segunda a Domingo: 9h às 22h</p>
             </div>
         </div>
-        
         <div class="footer-bottom">
             <div class="payment-methods">
-                <span>Pagamento via PIX</span>
+                <span>Formas de Pagamento</span>
                 <div class="payment-icons">
-                    <span title="Pagamento instantâneo via PIX">💠</span>
+                    <i class="fas fa-qrcode"></i>
                 </div>
-                <p class="payment-info">Transferência instantânea 24h</p>
+                <p class="payment-info">Aceitamos PIX para pagamento rápido e seguro</p>
             </div>
-            <p class="copyright">Divine Store ✨ © 2024 - A sua loja digital premium</p>
+            <p class="copyright"> 2024 Digital Store. Todos os direitos reservados.</p>
         </div>
     </footer>
 </body>
