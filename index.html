@@ -3,240 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameStore - Créditos Digitais e Gift Cards</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Divine Store ✨ | Sua Loja Digital</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="cart.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script type="module" src="products.js"></script>
-    <script type="module" src="cart.js"></script>
-    <script type="module" src="categories.js"></script>
-    <script type="module" src="main.js"></script>
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header>
         <div class="header-content">
             <a href="/" class="logo">
-                <i class="fas fa-gamepad"></i>
-                GameStore
+                <span>✨</span>
+                Divine Store
+                <span>✨</span>
             </a>
-            <div class="search-container">
-                <div class="search-bar">
-                    <input type="text" id="search" placeholder="Buscar produtos...">
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="header-actions">
-                <a href="#" class="header-link">
-                    <i class="fas fa-user"></i>
-                    <span>Minha Conta</span>
-                </a>
-                <button id="cartIcon" class="cart-button">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count">0</span>
-                </button>
+            <div class="cart-icon" onclick="toggleCart()">
+                <span>🛍️</span>
+                <span>Carrinho</span>
+                <span class="cart-count">0</span>
             </div>
         </div>
     </header>
 
-    <!-- Trust Badges -->
-    <div class="trust-badges">
-        <div class="container">
-            <div class="trust-badge">
-                <i class="fas fa-shield-alt"></i>
-                <span>Compra 100% Segura</span>
-            </div>
-            <div class="trust-badge">
-                <i class="fas fa-bolt"></i>
-                <span>Entrega Instantânea</span>
-            </div>
-            <div class="trust-badge">
-                <i class="fas fa-headset"></i>
-                <span>Suporte 24/7</span>
-            </div>
-            <div class="trust-badge">
-                <i class="fas fa-undo"></i>
-                <span>Garantia de Funcionamento</span>
-            </div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <button class="category-btn active" data-category="all">
+                🌟 Todos
+            </button>
+            <button class="category-btn" data-category="streaming">
+                📺 Streaming
+            </button>
+            <button class="category-btn" data-category="games">
+                🎮 Games
+            </button>
         </div>
-    </div>
+    </nav>
 
+    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Créditos Digitais para Seus Jogos Favoritos</h1>
-                <p>Recarregue seus jogos de forma rápida, segura e com os melhores preços!</p>
-                <div class="hero-buttons">
-                    <a href="#products" class="cta-button primary">Ver Produtos</a>
-                    <a href="#about" class="cta-button secondary">Como Funciona</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Categories Section -->
-        <section class="categories-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Categorias</h2>
-                    <p>Escolha sua categoria preferida</p>
-                </div>
-                <div id="categories" class="categories-grid"></div>
-            </div>
-        </section>
-
-        <!-- Featured Products -->
-        <section class="featured-products">
-            <div class="container">
-                <div class="section-header">
-                    <div class="title-group">
-                        <h2>Produtos em Destaque</h2>
-                        <p>Os produtos mais vendidos da semana</p>
-                    </div>
-                    <div class="filter-sort">
-                        <select id="categoryFilter" class="filter-select">
-                            <option value="">Todas Categorias</option>
-                            <option value="games">Games</option>
-                            <option value="gift-cards">Gift Cards</option>
-                            <option value="moedas">Moedas</option>
-                        </select>
-                        <select id="sortFilter" class="sort-select">
-                            <option value="popular">Mais Populares</option>
-                            <option value="recent">Mais Recentes</option>
-                            <option value="price-low">Menor Preço</option>
-                            <option value="price-high">Maior Preço</option>
-                        </select>
-                    </div>
-                </div>
-                <div id="products" class="products-grid"></div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section class="benefits">
-            <div class="container">
-                <div class="section-header center">
-                    <h2>Por que Escolher a GameStore?</h2>
-                    <p>Descubra as vantagens de comprar conosco</p>
-                </div>
-                <div class="benefits-grid">
-                    <div class="benefit-card">
-                        <i class="fas fa-bolt"></i>
-                        <h3>Entrega Instantânea</h3>
-                        <p>Receba seus créditos imediatamente após a confirmação do pagamento</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Compra Segura</h3>
-                        <p>Sistema de pagamento criptografado e garantia de funcionamento</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-tags"></i>
-                        <h3>Melhores Preços</h3>
-                        <p>Preços competitivos e promoções exclusivas para nossos clientes</p>
-                    </div>
-                    <div class="benefit-card">
-                        <i class="fas fa-headset"></i>
-                        <h3>Suporte 24/7</h3>
-                        <p>Atendimento rápido e eficiente para todas as suas dúvidas</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call to Action -->
-        <section class="cta-section">
-            <div class="cta-content">
-                <h2>Pronto para Começar?</h2>
-                <p>Escolha seus créditos favoritos e aproveite o melhor dos seus jogos!</p>
-                <a href="#products" class="cta-button">Comprar Agora</a>
+        <section id="products">
+            <div class="products-grid">
+                <!-- Products will be dynamically loaded here -->
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Cart Modal -->
+    <div class="cart-modal">
+        <div class="cart-header">
+            <h2>Seu Carrinho ✨</h2>
+            <button onclick="toggleCart()" class="close-modal">×</button>
+        </div>
+        <div class="cart-items">
+            <!-- Cart items will be dynamically loaded here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">Total: R$ 0,00</div>
+            <div class="payment-options">
+                <button onclick="checkoutWhatsApp()" class="checkout-btn whatsapp">
+                    <span>💬</span> WhatsApp
+                </button>
+                <button onclick="checkoutPix()" class="checkout-btn pix">
+                    <span>💠</span> Pagar com PIX
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="previewModal" class="preview-modal">
+        <div class="preview-container">
+            <button class="close-modal">×</button>
+            <div id="previewBody">
+                <!-- Preview content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="utils.js"></script>
+    <script type="module" src="templates.js"></script>
+    <script type="module" src="modal.js"></script>
+    <script type="module" src="data.js"></script>
+    <script type="module" src="products.js"></script>
+    <script type="module" src="categories.js"></script>
+    <script type="module" src="cart.js"></script>
+    <script type="module" src="init.js"></script>
+
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Atendimento</h3>
-                    <ul>
-                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                        <li><a href="#"><i class="far fa-envelope"></i> E-mail</a></li>
-                        <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Informações</h3>
-                    <ul>
-                        <li><a href="#">Como Funciona</a></li>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Pagamentos</h3>
-                    <div class="payment-methods">
-                        <i class="fab fa-pix"></i>
-                        <i class="fab fa-cc-visa"></i>
-                        <i class="fab fa-cc-mastercard"></i>
-                        <i class="fas fa-qrcode"></i>
-                    </div>
-                </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <span class="footer-icon">💫</span>
+                <h3>Qualidade Premium</h3>
+                <p>Produtos 100% Originais</p>
+                <p>Garantia Vitalícia</p>
+                <p>Satisfação Garantida</p>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 GameStore - Todos os direitos reservados</p>
+            
+            <div class="footer-section">
+                <span class="footer-icon">🔒</span>
+                <h3>Compra Segura</h3>
+                <p>Criptografia Avançada</p>
+                <p>Pagamento Protegido</p>
+                <p>Dados Seguros</p>
             </div>
+
+            <div class="footer-section">
+                <span class="footer-icon">⚡</span>
+                <h3>Entrega Express</h3>
+                <p>Entrega Automática</p>
+                <p>Ativação Imediata</p>
+                <p>Disponível 24/7</p>
+            </div>
+
+            <div class="footer-section">
+                <span class="footer-icon">💬</span>
+                <h3>Suporte VIP</h3>
+                <p>Atendimento Premium</p>
+                <a href="https://wa.me/24981128510" class="whatsapp-button">
+                    <span>💬</span> Chamar no WhatsApp
+                </a>
+                <p class="support-hours">Suporte 24 horas por dia</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <span>Pagamento via PIX</span>
+                <div class="payment-icons">
+                    <span title="Pagamento instantâneo via PIX">💠</span>
+                </div>
+                <p class="payment-info">Transferência instantânea 24h</p>
+            </div>
+            <p class="copyright">Divine Store ✨ © 2024 - A sua loja digital premium</p>
         </div>
     </footer>
-
-    <!-- Modals -->
-    <div id="cartModal" class="modal">
-        <div class="modal-content">
-            <button id="closeModal" class="close-modal">&times;</button>
-            <h2>Seu Carrinho</h2>
-            <div id="cartItems"></div>
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cartTotal">R$ 0,00</span>
-            </div>
-            <div class="checkout-buttons">
-                <button id="checkoutWhatsApp" class="checkout-btn whatsapp">
-                    <i class="fab fa-whatsapp"></i> Finalizar no WhatsApp
-                </button>
-                <button id="checkoutPix" class="checkout-btn pix">
-                    <i class="fas fa-qrcode"></i> Pagar com PIX
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div id="pixModal" class="modal">
-        <div class="modal-content">
-            <button id="closePixModal" class="close-modal">&times;</button>
-            <h2>Pagamento via PIX</h2>
-            <div class="pix-content">
-                <div class="qr-code">
-                    <!-- QR Code será inserido aqui -->
-                </div>
-                <div class="pix-key">
-                    <p>Chave PIX:</p>
-                    <div class="copy-key">
-                        <input type="text" id="pixKey" readonly>
-                        <button id="copyPixKey">Copiar</button>
-                    </div>
-                </div>
-                <button id="confirmPayment" class="confirm-payment">
-                    Confirmar Pagamento
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Toast Container -->
-    <div id="toastContainer" class="toast-container"></div>
 </body>
 </html>
