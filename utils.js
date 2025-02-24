@@ -74,3 +74,24 @@ export function calculateCartTotal(cart) {
         return total + (priceWithTax * item.quantity);
     }, 0);
 }
+
+
+/* Flexbox para alinhamento horizontal */document.querySelector('.category-btn[data-category="instagram"]').addEventListener('click', function() {
+    exibirProdutos('instagram'); // Chama a função para exibir produtos da categoria Instagram
+});
+
+function exibirProdutos(categoria) {
+    const produtosContainer = document.getElementById('produtos-container'); // Certifique-se de que este ID existe no seu HTML
+    produtosContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+    // Filtra os produtos pela categoria
+    const produtosFiltrados = products.filter(produto => produto.category === categoria);
+
+    // Exibe os produtos filtrados
+    produtosFiltrados.forEach(produto => {
+        const button = document.createElement('button');
+        button.className = 'product-btn';
+        button.innerText = produto.name; // Nome do produto
+        produtosContainer.appendChild(button);
+    });
+}

@@ -1,3 +1,4 @@
+// Array de categorias - Fácil de adicionar novas categorias
 export const categories = [
     {
         id: 'all',
@@ -28,13 +29,36 @@ export const categories = [
         id: 'seguranca',
         name: 'Segurança',
         emoji: '🔒'
+    },
+    // Exemplo de como adicionar novas categorias:
+    {
+        id: 'educacao',
+        name: 'Educação',
+        emoji: '📚'
+    },
+    {
+        id: 'design',
+        name: 'Design',
+        emoji: '🎨'
     }
 ];
 
+// Função para adicionar uma nova categoria
+export function addCategory(id, name, emoji) {
+    const newCategory = { id, name, emoji };
+    categories.push(newCategory);
+    renderCategories(); // Atualiza a interface
+    return newCategory;
+}
+
 export function renderCategories() {
     const categoriesContainer = document.getElementById('categories');
+    
+    // Cria o container com scroll horizontal
+    categoriesContainer.classList.add('categories-container');
+    
     categoriesContainer.innerHTML = categories.map(category => `
-        <button class="category-btn ${category.id === 'streaming' ? 'active' : ''}" data-category="${category.id}">
+        <button class="category-btn ${category.id === 'all' ? 'active' : ''}" data-category="${category.id}">
             ${category.emoji} ${category.name}
         </button>
     `).join('');
@@ -43,21 +67,15 @@ export function renderCategories() {
     const categoryButtons = categoriesContainer.querySelectorAll('.category-btn');
     categoryButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove a classe active de todos os botões
             categoryButtons.forEach(btn => btn.classList.remove('active'));
-            // Adiciona a classe active ao botão clicado
             button.classList.add('active');
-            
-            // Obtém a categoria do botão clicado
             const category = button.dataset.category;
-            
-            // Renderiza os produtos da categoria selecionada
             window.renderProducts(category);
         });
     });
 }
 
-// Certifique-se que esta função está sendo chamada quando a página carrega
+// Inicialização quando a página carrega
 document.addEventListener('DOMContentLoaded', () => {
     renderCategories();
-}); 
+});
