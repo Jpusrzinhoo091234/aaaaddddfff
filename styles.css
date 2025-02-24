@@ -941,7 +941,131 @@ main {
     }
 }
 
+/* PIX Payment Modal Styles */
+.payment-modal {
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.pix-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    text-align: center;
+}
+
+.pix-content h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.qr-code-container {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+}
+
+.pix-key-container {
+    width: 100%;
+}
+
+.pix-key-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #f5f5f5;
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.pix-key-box span {
+    flex: 1;
+    font-family: monospace;
+    font-size: 1.1rem;
+}
+
+.copy-button {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.copy-button:hover {
+    background: var(--primary-color-dark);
+}
+
+.payment-total {
+    background: #f0f8ff;
+    padding: 1rem;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.total-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    display: block;
+    margin-top: 0.5rem;
+}
+
+.payment-instructions {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.payment-confirm-button {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.payment-confirm-button:hover {
+    background: #128C7E;
+}
+
 /* Responsive adjustments */
+@media (max-width: 480px) {
+    .payment-modal {
+        padding: 1rem;
+    }
+
+    .qr-code {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pix-key-box {
+        flex-direction: column;
+    }
+
+    .copy-button {
+        width: 100%;
+    }
+}
+
 @media (max-width: 768px) {
     .trust-grid {
         grid-template-columns: 1fr;
@@ -998,5 +1122,108 @@ main {
 
     .preview-content {
         padding: 1rem;
+    }
+}
+
+/* PIX Modal Styles */
+.pix-modal {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.pix-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.pix-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin: 0;
+}
+
+.qr-code-section img {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.pix-key-section {
+    background: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.pix-key-section p {
+    margin: 0 0 10px 0;
+    font-weight: bold;
+}
+
+.pix-key-wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#pixKeyText {
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.copy-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pix-total {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pix-instructions {
+    color: #666;
+    margin: 0;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .pix-modal {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .qr-code-section img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .pix-key-wrapper {
+        flex-direction: column;
+    }
+
+    .copy-btn {
+        width: 100%;
     }
 }
