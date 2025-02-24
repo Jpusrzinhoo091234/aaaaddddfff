@@ -151,40 +151,6 @@ function showToast(message) {
     }, 3000);
 }
 
-// PIX Modal Functions
-function openPixModal() {
-    document.getElementById('pixModal').style.display = 'flex';
-}
-
-function closePixModal() {
-    document.getElementById('pixModal').style.display = 'none';
-}
-
-function copyPix() {
-    const pixKey = document.getElementById('pixKeyText').textContent;
-    navigator.clipboard.writeText(pixKey);
-    
-    const copyBtn = document.querySelector('.copy-btn');
-    copyBtn.textContent = '✅ Copiado!';
-    
-    setTimeout(() => {
-        copyBtn.textContent = '📋 Copiar Chave PIX';
-    }, 2000);
-}
-
-function sendProof() {
-    const phone = '24981128510';
-    const message = 'Olá! Acabei de fazer um pagamento PIX. Segue o comprovante:';
-    window.open(`https://wa.me/${phone}?text=${encodeURIComponent(message)}`, '_blank');
-}
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-    }
-}
-
 // Checkout functions
 function checkoutWhatsApp() {
     if (cart.length === 0) {
@@ -208,12 +174,53 @@ function checkoutPix() {
     }
     
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    openPixModal();
+    pixAmount.textContent = `R$ ${total.toFixed(2)}`;
+    pixModal.classList.add('active');
+    
+    // Mostrar toast com instrução
+    showToast('Copie a chave PIX e faça o pagamento no seu banco');
 }
 
-function redirectToWhatsApp() {
-    const phoneNumber = '24981128510';
-    const message = encodeURIComponent('Olá! Acabei de fazer um pagamento PIX. Segue o comprovante:');
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-    window.open(whatsappUrl, '_blank');
+function copyPixKey() {
+    const pixKey = document.getElementById('pixKey');
+    navigator.clipboard.writeText(pixKey.textContent)
+        .then(() => {
+            showToast('✅ Chave PIX copiada com sucesso!');
+            // Destacar visualmente a chave copiada
+            const keyContent = pixKey.parentElement;
+            keyContent.style.backgroundColor = 'rgba(255, 255, 255, 0.2)';
+            setTimeout(() => {
+                keyContent.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+            }, 300);
+        })
+        .catch(() => {
+            showToast('❌ Erro ao copiar. Selecione a chave manualmente.');
+        });
 }
+
+function sendReceipt() {
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const message = encodeURIComponent(
+        `Olá! Acabei de fazer um PIX de R$ ${total.toFixed(2)}\n` +
+        'Estou enviando o comprovante do pagamento.'
+    );
+    window.open(`https://wa.me/24981128510?text=${message}`);
+}
+
+function closePixModal() {
+    pixModal.classList.remove('active');
+}
+
+// Fechar modal ao clicar fora
+window.addEventListener('click', (event) => {
+    if (event.target === pixModal) {
+        closePixModal();
+    }
+});
+
+// Fechar modal com tecla ESC
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && pixModal.classList.contains('active')) {
+        closePixModal();
+    }
+});

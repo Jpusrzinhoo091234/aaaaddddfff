@@ -6,7 +6,9 @@ import {
     findProductById,
     saveToLocalStorage,
     loadFromLocalStorage,
-    calculateCartTotal
+    calculateCartTotal,
+    products,
+    getAdjustedPrice
 } from './utils.js';
 import { products } from './data.js';
 
@@ -112,24 +114,37 @@ function updateCartUI() {
     }
 
     // Renderiza itens
-    cartContainer.innerHTML = cart.map(item => `
-        <div class="cart-item">
-            <div class="cart-item-info">
-                <h4>${item.name}</h4>
-                <p>R$ ${item.price.toFixed(2)} cada</p>
+    cartContainer.innerHTML = cart.map(item => {
+        const product = findProductById(products, item.id);
+        const adjustedPrice = getAdjustedPrice(product.price);
+        return `
+            <div class="cart-item">
+                <div class="cart-item-info">
+                    <h4>${product.name}</h4>
+                    <p>R$ ${adjustedPrice.toFixed(2)} cada</p>
+                </div>
+                <div class="cart-item-quantity">
+                    <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
+                </div>
+                <button class="remove-item" onclick="removeFromCart('${item.id}')">×</button>
             </div>
-            <div class="cart-item-quantity">
-                <button onclick="updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
-                <span>${item.quantity}</span>
-                <button onclick="updateQuantity('${item.id}', ${item.quantity + 1})">+</button>
-            </div>
-            <button class="remove-item" onclick="removeFromCart('${item.id}')">×</button>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     // Atualiza total
     const total = calculateCartTotal(cart);
     cartTotal.textContent = `Total: R$ ${total.toFixed(2)}`;
+}
+
+// Função para calcular o total do carrinho
+function calculateCartTotal(cartItems) {
+    return cartItems.reduce((total, item) => {
+        const product = findProductById(products, item.id);
+        const adjustedPrice = getAdjustedPrice(product.price);
+        return total + (adjustedPrice * item.quantity);
+    }, 0);
 }
 
 // Função para mostrar/esconder o carrinho
@@ -151,8 +166,10 @@ function checkoutWhatsApp() {
     message += "*Itens do Pedido:*\n";
     
     cart.forEach(item => {
-        message += `▫️ ${item.name}\n`;
-        message += `   ${item.quantity}x R$ ${item.price.toFixed(2)} = R$ ${(item.price * item.quantity).toFixed(2)}\n\n`;
+        const product = findProductById(products, item.id);
+        const adjustedPrice = getAdjustedPrice(product.price);
+        message += `▫️ ${product.name}\n`;
+        message += `   ${item.quantity}x R$ ${adjustedPrice.toFixed(2)} = R$ ${(adjustedPrice * item.quantity).toFixed(2)}\n\n`;
     });
     
     message += `\n💰 *Total: R$ ${total.toFixed(2)}*`;
@@ -173,19 +190,29 @@ function createPaymentModal() {
             <div class="pix-content">
                 <div class="qr-container">
                     <img src="./qrcodepix.jpg" alt="QR Code PIX" class="qr-image" onerror="this.onerror=null; handleImageError(this);">
+                    <div class="pix-key-section">
+                        <p class="pix-key">Chave PIX: <strong>24981128510</strong></p>
+                        <button class="copy-pix-btn" onclick="copyPixKey()">
+                            <span>📋</span> Copiar Chave PIX
+                        </button>
+                    </div>
+                    <div class="pix-steps">
+                        <p>1. Escaneie o QR Code ou copie a chave PIX</p>
+                        <p>2. Faça o pagamento de <strong class="total-value">R$ 0,00</strong></p>
+                        <p>3. Clique no botão abaixo para enviar o comprovante</p>
+                    </div>
+                    <button onclick="window.open('https://wa.me/5524981128510')" class="whatsapp-proof-btn">
+                        <span>💬</span> Enviar Comprovante no WhatsApp
+                    </button>
                 </div>
                 
                 <div class="pix-info">
-                    <p class="pix-key">Chave PIX: <strong>24981128510</strong></p>
-                    <button class="copy-pix-btn" onclick="copyPixKey()">
-                        <span>📋</span> Copiar Chave PIX
-                    </button>
+                    
                 </div>
             </div>
             
             <div class="pix-footer">
                 <p class="total-amount"></p>
-                <p class="pix-instructions">Após o pagamento, envie o comprovante pelo WhatsApp</p>
             </div>
         </div>
     `;
@@ -234,6 +261,7 @@ function checkoutPix() {
     const total = calculateCartTotal(cart);
     const modal = createPaymentModal();
     modal.querySelector('.total-amount').textContent = `Total: R$ ${total.toFixed(2)}`;
+    modal.querySelector('.total-value').textContent = `R$ ${total.toFixed(2)}`;
     modal.style.display = 'flex';
 }
 

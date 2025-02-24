@@ -1,6 +1,6 @@
 // Importações
 import { categories } from './categories.js';
-import { products } from './data.js';
+import { products, getAdjustedPrice } from './data.js';
 import { filterProductsByCategory, findProductById } from './utils.js';
 import { productCardTemplate, noProductsTemplate } from './templates.js';
 
@@ -22,13 +22,16 @@ function renderProducts(category = 'all') {
         
         const stockClass = product.stock < 5 ? 'low-stock' : '';
         
+        const adjustedPrice = getAdjustedPrice(product.price);
+        const adjustedOldPrice = product.oldPrice ? getAdjustedPrice(product.oldPrice) : null;
+
         card.innerHTML = `
             ${product.highlight ? `<div class="product-highlight">${product.highlight}</div>` : ''}
             <div class="product-emoji">${product.emoji}</div>
             <h3 class="product-title">${product.name}</h3>
             <div class="product-price-container">
-                ${product.oldPrice ? `<div class="product-old-price">R$ ${product.oldPrice.toFixed(2)}</div>` : ''}
-                <div class="product-price">R$ ${product.price.toFixed(2)}</div>
+                ${adjustedOldPrice ? `<div class="product-old-price">R$ ${adjustedOldPrice.toFixed(2)}</div>` : ''}
+                <div class="product-price">R$ ${adjustedPrice.toFixed(2)}</div>
             </div>
             <p class="product-short-description">${product.shortDescription}</p>
             <div class="stock-info ${stockClass}">
@@ -64,14 +67,17 @@ function openPreviewModal(product) {
     emoji.textContent = product.emoji;
     title.textContent = product.name;
     
-    if (product.oldPrice) {
-        oldPrice.textContent = `R$ ${product.oldPrice.toFixed(2)}`;
+    const adjustedPrice = getAdjustedPrice(product.price);
+    const adjustedOldPrice = product.oldPrice ? getAdjustedPrice(product.oldPrice) : null;
+
+    if (adjustedOldPrice) {
+        oldPrice.textContent = `R$ ${adjustedOldPrice.toFixed(2)}`;
         oldPrice.style.display = 'block';
     } else {
         oldPrice.style.display = 'none';
     }
     
-    price.textContent = `R$ ${product.price.toFixed(2)}`;
+    price.textContent = `R$ ${adjustedPrice.toFixed(2)}`;
     
     const stockClass = product.stock < 5 ? 'low-stock' : '';
     stock.className = `preview-stock ${stockClass}`;

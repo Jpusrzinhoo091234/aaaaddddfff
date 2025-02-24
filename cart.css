@@ -241,15 +241,17 @@
 }
 
 .qr-container {
-    margin: 20px auto;
-    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
 }
 
 .qr-image {
-    width: 100%;
+    max-width: 300px;
     height: auto;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
+    margin-bottom: 15px;
 }
 
 .qr-error {
@@ -260,10 +262,21 @@
     border-radius: 8px;
 }
 
+.pix-key-section {
+    text-align: center;
+    width: 100%;
+    margin: 10px 0;
+}
+
 .pix-key {
-    margin: 15px 0;
-    font-size: 1.1rem;
+    margin: 5px 0;
     color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.pix-key strong {
+    color: var(--accent-color);
+    font-weight: 600;
 }
 
 .copy-pix-btn {
@@ -271,13 +284,23 @@
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-weight: 600;
     cursor: pointer;
-    display: flex;
+    transition: all 0.2s;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 8px;
-    margin: 0 auto;
+    margin-top: 8px;
+}
+
+.copy-pix-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.copy-pix-btn:active {
+    transform: scale(0.98);
 }
 
 .pix-footer {
@@ -294,9 +317,66 @@
 }
 
 .pix-instructions {
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    margin: 0;
+    padding: 20px;
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.pix-instructions p {
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.pix-total {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.pix-steps {
+    text-align: center;
+    background: var(--bg-color);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.pix-steps p {
+    margin: 8px 0;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.pix-steps strong {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+}
+
+.whatsapp-proof-btn {
+    background: var(--whatsapp-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: auto;
+    min-width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.whatsapp-proof-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.whatsapp-proof-btn:active {
+    transform: scale(0.98);
 }
 
 /* Cart Count Badge */
