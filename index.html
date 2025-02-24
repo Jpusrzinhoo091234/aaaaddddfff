@@ -23,7 +23,8 @@
             </a>
             <div style="display: flex; gap: 1rem; align-items: center;">
                 <button class="theme-toggle" id="themeToggle">
-                    🌙
+                    <div class="theme-icon">🌙</div>
+                    <span class="theme-text">Tema</span>
                 </button>
                 <div class="cart-icon" onclick="toggleCart()">
                     <span>🛍️</span>
@@ -37,8 +38,8 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-content">
-            <button class="category-btn active" data-category="all">
-                🌟 Todos
+            <button class="category-btn active" data-category="home">
+                🌟 Início
             </button>
             <button class="category-btn" data-category="streaming">
                 📺 Streaming
@@ -60,6 +61,39 @@
 
     <!-- Main Content -->
     <main>
+        <!-- Trust Indicators Section -->
+        <section id="trust-indicators" class="trust-section">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">✨</div>
+                    <h3>Produtos Premium</h3>
+                    <p>Garantimos a mais alta qualidade em todos os nossos produtos digitais.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <h3>Compra Segura</h3>
+                    <p>Pagamento seguro via PIX com entrega automática após confirmação.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <h3>Entrega Express</h3>
+                    <p>Receba seu produto em até 5 minutos após a confirmação do pagamento.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">💬</div>
+                    <h3>Suporte VIP</h3>
+                    <p>Suporte técnico especializado via WhatsApp.</p>
+                </div>
+            </div>
+            <div class="support-info">
+                <h3>Falar com Suporte</h3>
+                <p>Segunda a Domingo: 9h às 22h</p>
+                <button class="support-button" onclick="window.open('https://wa.me/seu_numero_aqui')">
+                    <span>💬</span> Falar com Suporte
+                </button>
+            </div>
+        </section>
+
         <section id="products">
             <div class="products-grid">
                 <!-- Products will be dynamically loaded here -->
@@ -128,6 +162,7 @@
     <script type="module" src="preview.js"></script>
     <script type="module" src="theme.js"></script>
     <script type="module" src="init.js"></script>
+    <script src="script.js"></script>
 
     <footer class="footer">
         <div class="footer-content">

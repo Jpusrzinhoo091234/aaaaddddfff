@@ -12,7 +12,7 @@ const previewAddBtn = document.querySelector('.preview-add-btn');
 let currentProductId = null;
 
 // Abrir modal de preview
-function openPreviewModal(productId) {
+export function openPreviewModal(productId) {
     const product = products.find(p => p.id === productId);
     if (!product) return;
 
@@ -62,7 +62,7 @@ function openPreviewModal(productId) {
 }
 
 // Fechar modal de preview
-function closePreviewModal() {
+export function closePreviewModal() {
     previewModal.style.display = 'none';
     document.body.style.overflow = 'auto';
     currentProductId = null;
@@ -81,3 +81,6 @@ document.addEventListener('keydown', (e) => {
         closePreviewModal();
     }
 });
+
+// Make closePreviewModal available globally
+window.closePreviewModal = closePreviewModal;

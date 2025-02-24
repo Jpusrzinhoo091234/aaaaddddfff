@@ -70,17 +70,31 @@ body {
 
 /* Theme Toggle */
 .theme-toggle {
-    background: none;
+    background: var(--accent-gradient);
     border: none;
-    color: var(--text-color);
+    color: white;
     cursor: pointer;
-    font-size: 1.5rem;
-    padding: 0.5rem;
-    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
-    transform: scale(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.theme-toggle span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
 }
 
 /* Header */
@@ -681,7 +695,268 @@ main {
     font-size: 1.1rem;
 }
 
-/* Responsivo */
+/* Trust Indicators Section */
+.trust-section {
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.trust-item {
+    background: var(--card-gradient);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.trust-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+.trust-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.trust-item h3 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.trust-item p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.support-info {
+    text-align: center;
+    padding: 2rem;
+    background: var(--card-gradient);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.support-info h3 {
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.support-info p {
+    color: var(--text-gray);
+    margin-bottom: 1.5rem;
+}
+
+.support-button {
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.support-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+.support-button span {
+    font-size: 1.2rem;
+}
+
+/* PIX Payment Modal */
+.payment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--modal-bg);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.payment-modal.active {
+    display: flex;
+}
+
+.payment-modal-content {
+    background: var(--bg-card);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    border: 1px solid var(--border-color);
+}
+
+.pix-content {
+    text-align: center;
+}
+
+.pix-content h2 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.qr-section h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.pix-key-container {
+    margin: 2rem 0;
+    padding: 1rem;
+    background: var(--bg-color);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.key-label {
+    color: var(--text-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.key-value {
+    color: var(--text-color);
+    font-family: monospace;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.copy-pix-button {
+    background: var(--accent-gradient);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.copy-pix-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.pix-total {
+    margin: 1.5rem 0;
+    font-size: 1.3rem;
+    color: var(--text-color);
+}
+
+.pix-total .amount {
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+.pix-footer {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.pix-footer p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+}
+
+.whatsapp-button {
+    background: var(--whatsapp-color);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.whatsapp-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .payment-modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+
+    .key-value {
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .trust-section {
+        padding: 1rem;
+    }
+
+    .trust-item {
+        padding: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .preview-content {
         grid-template-columns: 1fr;
